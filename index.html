@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Student Register</h1>
+            <p>Studets can register here</p>
+        </header>
+
+        <div class="main-content">
+            <section class="form-section" aria-labelledby="form-heading">
+                <h2 id="form-heading">Registration Form</h2>
+                <form id="registrationForm" novalidate>
+                    <div class="form-group">
+                        <label for="firstName" class="required">First Name</label>
+                        <input type="text" id="firstName" name="firstName" required aria-describedby="firstNameError">
+                        <div id="firstNameError" class="error" role="alert"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastName" class="required">Last Name</label>
+                        <input type="text" id="lastName" name="lastName" required aria-describedby="lastNameError">
+                        <div id="lastNameError" class="error" role="alert"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="required">Email</label>
+                        <input type="email" id="email" name="email" required aria-describedby="emailError">
+                        <div id="emailError" class="error" role="alert"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="programme" class="required">Programme</label>
+                        <select id="programme" name="programme" required aria-describedby="programmeError">
+                            <option value="">Select a programme</option>
+                            <option value="Computer Science">Computer Science</option>
+                            <option value="Business Administration">Nursing</option>
+                            <option value="Engineering">Engineering</option>
+                            <option value="Arts">Film Making</option>
+                            <option value="Medicine">Medicine</option>
+                            <option value="Law">Law</option>
+                        </select>
+                        <div id="programmeError" class="error" role="alert"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="year" class="required">Year</label>
+                        <select id="year" name="year" required aria-describedby="yearError">
+                            <option value="">Select year</option>
+                            <option value="1">Year 1</option>
+                            <option value="2">Year 2</option>
+                            <option value="3">Year 3</option>
+                            <option value="4">Year 4</option>
+                            <option value="5">Year 5</option>
+                        </select>
+                        <div id="yearError" class="error" role="alert"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="interests">Interests</label>
+                        <textarea id="interests" name="interests" rows="3" placeholder="List your interests separated by commas"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="photoUrl">Photo URL</label>
+                        <input type="url" id="photoUrl" name="photoUrl" placeholder="https://example.com/photo.jpg">
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">Register Student</button>
+                        <button type="reset" class="btn-secondary">Clear Form</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="output-section" aria-labelledby="output-heading">
+                <h2 id="output-heading">Student Profiles</h2>
+                
+                <div class="search-container">
+                    <label for="searchInput">Search For Profiles</label>
+                    <input type="text" id="searchInput" placeholder="Search by name, programme, or interests...">
+                </div>
+
+                <div id="profileCards" class="profile-cards">
+                    <div class="no-profiles" id="noProfilesMessage">
+                        No student profiles yet. Register a student to get started.
+                    </div>
+                </div>
+
+                <h3>Summary Table</h3>
+                <div class="table-container">
+                    <table class="summary-table" id="summaryTable">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Programme</th>
+                                <th>Year</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                            <!-- Table rows will be added here dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- ARIA Live Region for accessibility feedback -->
+    <div id="ariaLive" class="aria-live" aria-live="polite" aria-atomic="true"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
